@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-class Point {
+template <class T> class Point {
   public:
     Point() {}
-    Point(double x, double y) {
+    Point(T x, T y) {
         this->x = x;
         this->y = y;
     }
@@ -32,21 +32,22 @@ class Point {
     friend bool operator==(Point &p1, Point &p2) {
         return (p1.x == p2.x) && (p1.y == p2.y);
     }
-    friend double abs(Point &p) {
+    friend T abs(Point &p) {
         return sqrt(pow(p.x, 2) + pow(p.y, 2));
     }
 
   private:
-    double x, y;
-    double get_x() {
+    T x, y;
+    T get_x() {
         return this->x;
     }
-    double get_y() {
+    T get_y() {
         return this->y;
     }
 };
 int main() {
-    Point p1, p2;
+    Point<double> p1, p2;
     cin >> p1 >> p2;
     cout << boolalpha << (p1 == p2) << endl;
+    cout << p1 / p2 << endl;
 }
