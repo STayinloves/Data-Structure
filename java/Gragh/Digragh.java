@@ -1,3 +1,5 @@
+package Gragh;
+
 import java.util.*;
 import java.lang.reflect.*;
 class DirectedEdge
@@ -97,7 +99,7 @@ class Dijkstra
         for (;;) {
             min = BGT;
             for (DirectedEdge i : G.adj(v)) {
-                if (vis[i.to()] == false && min > distTo[i.to()]) {
+                if (!vis[i.to()] && min > distTo[i.to()]) {
                     min = distTo[i.to()];
                     t = i.to();
                 }
@@ -105,7 +107,7 @@ class Dijkstra
             if (min == BGT) break;
             vis[t] = true;
             for (DirectedEdge i : G.adj(t)) {
-                if (vis[i.to()] == false && distTo[t] + i.weight() < distTo[i.to()])
+                if (!vis[i.to()] && distTo[t] + i.weight() < distTo[i.to()])
                     distTo[i.to()] = distTo[t] + i.weight();
             }
         }

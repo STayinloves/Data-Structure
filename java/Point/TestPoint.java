@@ -1,3 +1,5 @@
+package Point;
+
 class Point<T> {
     private T x;
     private T y;
