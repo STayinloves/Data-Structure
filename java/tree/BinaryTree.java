@@ -1,4 +1,4 @@
-package tree;
+package Tree;
 
 /**
  * Created by STay on 17-5-5.
