@@ -1,9 +1,9 @@
 package Gragh;
 
-import java.util.*;
-import java.lang.reflect.*;
-class DirectedEdge
-{
+import java.lang.reflect.Array;
+import java.util.Vector;
+
+class DirectedEdge {
     private final int v;
     private final int w;
     private final double weight;
@@ -13,26 +13,30 @@ class DirectedEdge
         this.w = w;
         this.weight = weight;
     }
+
     public int from() {
         return v;
     }
+
     public int to() {
         return w;
     }
+
     public double weight() {
         return weight;
     }
+
     public String toString() {
         return String.format("%d->%d %.2f", v, w, weight);
     }
+
     public static void main(String[] args) {
         DirectedEdge e = new DirectedEdge(1, 2, 3);
         System.out.println(e);
     }
 }
 
-class EdgeWeightedDigragh
-{
+class EdgeWeightedDigragh {
     private final int V;
     private int E;
     private Vector<DirectedEdge>[] adj;
@@ -46,16 +50,20 @@ class EdgeWeightedDigragh
             adj[v] = new Vector<DirectedEdge>();
         }
     }
+
     public void addEdge(DirectedEdge e) {
         adj[e.from()].add(e);
         E++;
     }
+
     public int V() {
         return this.V;
     }
+
     public Iterable<DirectedEdge> adj(int v) {
         return adj[v];
     }
+
     @Override
     public String toString() {
         String s = "";
@@ -66,6 +74,7 @@ class EdgeWeightedDigragh
         }
         return s;
     }
+
     public static void main(String[] args) {
         EdgeWeightedDigragh d = new EdgeWeightedDigragh(1);
         DirectedEdge e = new DirectedEdge(0, 2, 3);
@@ -74,14 +83,14 @@ class EdgeWeightedDigragh
     }
 }
 
-class Dijkstra
-{
+class Dijkstra {
     private Double[] distTo;
     private Boolean[] vis;
 
     public double distTo(int w) {
         return distTo[w];
     }
+
     public Dijkstra(EdgeWeightedDigragh G, int v) {
         double min, BGT = Double.MAX_VALUE;
         int t = v;
@@ -95,8 +104,8 @@ class Dijkstra
             distTo[i.to()] = i.weight();
         }
         vis[v] = true;
-        distTo[v] = (double)0;
-        for (;;) {
+        distTo[v] = (double) 0;
+        for (; ; ) {
             min = BGT;
             for (DirectedEdge i : G.adj(v)) {
                 if (!vis[i.to()] && min > distTo[i.to()]) {
@@ -111,7 +120,8 @@ class Dijkstra
                     distTo[i.to()] = distTo[t] + i.weight();
             }
         }
-    } 
+    }
+
     public static void main(String args[]) {
         EdgeWeightedDigragh g = new EdgeWeightedDigragh(3);
         g.addEdge(new DirectedEdge(0, 1, 1));

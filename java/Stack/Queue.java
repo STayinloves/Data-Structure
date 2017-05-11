@@ -72,7 +72,7 @@ public class Queue {
 
     public static void main(String[] args) throws Exception {
         Queue q = new Queue();
-        for (String i : new String[]{"a","b","c","d","d"})
+        for (String i : new String[]{"a", "b", "c", "d", "d"})
             q.push(new Item(i));
         q.clear();
         System.out.println(q);

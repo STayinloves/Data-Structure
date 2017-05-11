@@ -2,8 +2,6 @@ package LinkedList;
 
 import java.util.Iterator;
 
-import static java.util.Objects.compare;
-
 class Node<Item> {
     Item item;
     Node<Item> next;
@@ -70,8 +68,7 @@ public class List<Item extends Comparable<Item>> implements Iterable<Item> {
         if (pos > N + 1) return false;
         if (pos == N + 1) {
             for (int i = 0; i < repeat; i++) this.push_back(value);
-        }
-        else if (pos == 1) {
+        } else if (pos == 1) {
             Node<Item> tempNext = beginNode;
             for (int i = 0; i < repeat; i++) this.push_front(value);
         } else {

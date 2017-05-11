@@ -27,6 +27,7 @@ public class BinaryTree {
         public boolean isLeaf() {
             return this.right == null && this.left == null;
         }
+
         public int countLeafNode() {
             if (this.isLeaf()) return 1;
             int cnt = 0;
@@ -164,7 +165,7 @@ public class BinaryTree {
         binaryTree.testPrint();
         System.out.println("The node a has " + binaryTree.findNodeByValue("a").countLeafNode() + " left nodes.");
         System.out.println("The tree has " + binaryTree.root.countNode() + " nodes.");
-        binaryTree =  new BinaryTree("((e,b,(i2,f1,)),a,(,cc,hh))");
+        binaryTree = new BinaryTree("((e,b,(i2,f1,)),a,(,cc,hh))");
         binaryTree.testPrint();
     }
 }
