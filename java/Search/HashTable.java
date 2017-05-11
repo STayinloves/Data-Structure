@@ -73,8 +73,8 @@ public class HashTable<Key, Value> {
         }
         System.out.println("Search 29 in the hash table find " + st.get(29));
         st.delete(29);
-        System.out.println("Search 29 in the hash table find " + st.get(29));
-        st.put(29, true);
-        System.out.println("Search 29 in the hash table find " + st.get(29));
+        System.out.println("Search 29 in the hash table find " + st.get(77));
+        st.put(77, true);
+        System.out.println("Search 29 in the hash table find " + st.get(77));
     }
 }

@@ -34,7 +34,6 @@ public class Train implements Comparable<Train> {
 
     public static void main(String[] arg) {
         List<Train> tList = new List<Train>(new Train("G101", "06:44", "12:38", "Beijing South", "Shanghai Hongqiao"));
-        ;
         tList.push_back(new Train("K817", "08:00", "12:30", "Beijing West", "Chengdu"));
         tList.push_front(new Train("Z21", "20:00", "12:10", "Beijing West", "Lhasa"));
         tList.insert(2, new Train("G57", "07:20", "05:44", "Beijing South", "Hangzhou East"), 2);

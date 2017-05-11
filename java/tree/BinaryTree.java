@@ -5,9 +5,9 @@ package Tree;
  */
 
 public class BinaryTree {
-    private TreeNode root;
+    TreeNode root;
 
-    private class TreeNode<Item> {
+    public class TreeNode<Item> {
         Item val;
         public TreeNode left, right;
 
@@ -57,7 +57,7 @@ public class BinaryTree {
         root = buildTreeByTable(table);
     }
 
-    public TreeNode buildTreeByTable(String table) {
+    private TreeNode buildTreeByTable(String table) {
         if (table.length() == 0) return null;
         if (table.charAt(0) == '(') {
             table = table.substring(1, table.length() - 1);

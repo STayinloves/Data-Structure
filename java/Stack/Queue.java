@@ -1,22 +1,5 @@
 package Stack;
 
-/**
- * Created by STay on 17-5-5.
- */
-class Item {
-    public String c;
-
-    public Item(String i) {
-        c = i;
-    }
-
-    public String toString() {
-        StringBuilder s = new StringBuilder();
-        s.append(c);
-        return s.toString();
-    }
-}
-
 public class Queue {
     int maxsize = 100;
     private int front, rear, size;
@@ -26,6 +9,7 @@ public class Queue {
         items = new Item[maxsize];
         front = rear = size = 0;
     }
+
 
     public void push(Item i) throws Exception {
         if (size == maxsize) throw new Exception("maxsize exceed!");
@@ -65,7 +49,7 @@ public class Queue {
     public String toString() {
         StringBuilder s = new StringBuilder();
         for (int i = front; i != rear; i++) {
-            s.append("\n" + items[i]);
+            s.append("\n").append(items[i]);
         }
         return s.toString();
     }
@@ -74,6 +58,7 @@ public class Queue {
         Queue q = new Queue();
         for (String i : new String[]{"a", "b", "c", "d", "d"})
             q.push(new Item(i));
+        System.out.println(q);
         q.clear();
         System.out.println(q);
     }

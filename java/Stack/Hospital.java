@@ -68,7 +68,7 @@ public class Hospital {
         System.out.println("2. Send patient to see the doctor");
         System.out.println("3. List the IDs of all patients in queue");
         System.out.println("4. Stop queueing, List the IDs of all patients in queue and exit");
-        System.out.println("5. exit");
+        System.out.println("5. Exit");
         Scanner in = new Scanner(System.in);
         int input = in.nextInt();
         if (input < 1 || input > 5) return -1;

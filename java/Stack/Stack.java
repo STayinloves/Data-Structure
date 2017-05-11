@@ -22,6 +22,10 @@ public class Stack<Item> implements Iterable {
         arrayList.remove(this.size() - 1);
     }
 
+    public Item top() {
+        return arrayList.get(this.size() - 1);
+    }
+
     public int size() {
         if (arrayList.isEmpty()) return 0;
         else
