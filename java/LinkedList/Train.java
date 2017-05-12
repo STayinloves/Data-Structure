@@ -77,23 +77,29 @@ public class Train implements Comparable<Train> {
                 }
                 case 4: {
                     System.out.println("请输入车次 格式：车次");
+                    int pos;
                     Scanner in = new Scanner(System.in);
-                    String s = in.next();
+                    String s;
+                    while (true) {
+                        s = in.next();
+                        pos = tList.getPositionByValue(new Train(s));
+                        if (pos == -1) System.out.println("找不到输入的车次，请重试 格式：车次");
+                        else break;
+                    }
+
                     System.out.println("请输入信息 格式：开点,到点,始发站,终点站 不改动信息用 $ 占位");
                     String info = in.next();
                     String[] infoArray = info.split(",");
 
-                    int pos = tList.getPositionByValue(new Train(s));
                     Train train = tList.getNthElement(pos);
                     tList.deleteIthElement(pos);
                     infoArray[0] = infoArray[0].equals("$") ? train.LeaveTime : infoArray[0];
                     infoArray[1] = infoArray[1].equals("$") ? train.ArriveTime : infoArray[1];
                     infoArray[2] = infoArray[2].equals("$") ? train.DepartureStation : infoArray[2];
                     infoArray[3] = infoArray[3].equals("$") ? train.DestinationStation : infoArray[3];
-                    for (String st : infoArray) {
-                        System.out.print(st + " ");
-                    }
-                    tList.insert(pos, new Train(s, infoArray[0], infoArray[1], infoArray[2], infoArray[3]), 1);
+                    Train newTrain = new Train(s, infoArray[0], infoArray[1], infoArray[2], infoArray[3]);
+                    System.out.println(newTrain);
+                    tList.insert(pos, newTrain, 1);
                     break;
                 }
                 case 5: {

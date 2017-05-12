@@ -3,3 +3,4 @@ debug.log
 *.class
 .vscode
 .idea
+production
