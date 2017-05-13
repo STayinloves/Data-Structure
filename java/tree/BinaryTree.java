@@ -1,5 +1,7 @@
 package Tree;
 
+import Stack.Stack;
+
 /**
  * Created by STay on 17-5-5.
  */
@@ -102,6 +104,20 @@ public class BinaryTree {
         printTree(node.right);
     }
 
+    public void printTreeNotRec() {
+        System.out.println("The tree print in preorder but not recursion is:");
+        Stack<TreeNode> st = new Stack<TreeNode>();
+        st.push(root);
+        while (!st.empty()) {
+            TreeNode top = st.top();
+            st.pop();
+            System.out.print(top.val + " ");
+            if (top.right != null) st.push(top.right);
+            if (top.left != null) st.push(top.left);
+        }
+        System.out.println();
+    }
+
     public void printPostorder() {
         System.out.println("The tree print in postorder is:");
         printPostorder(root);
@@ -145,6 +161,7 @@ public class BinaryTree {
         this.printTree();
         this.printPostorder();
         this.printPreorder();
+        this.printTreeNotRec();
     }
 
     public TreeNode findNodeByValue(String s) {
